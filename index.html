@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title>Demo Notify</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<style>
+	body{background:#6F5C58}
+	#notify {
+		width: 330px;
+    height: 90px;
+		position: absolute;
+		z-index: 101;
+		bottom: 40;		
+		right: 40;
+		background: #569650;
+		text-align: center;
+		line-height: 2.5;
+		overflow: hidden; 
+		-webkit-box-shadow: 0 0 5px #569650;
+		-moz-box-shadow:    0 0 5px #569650;
+		box-shadow:         0 0 5px #569650;
+		display:none;
+	}
+	#notify img{
+		width: 50px;
+		height: 50px;
+		float: left;
+		margin: 10px;
+		text-align: center;
+		margin-top: 17px;
+	}
+	#notify p{
+		margin: 0;
+		padding: 0;
+		text-align: left;
+		line-height: 22px;
+		margin-top: 10px;
+		margin-right: 10px;
+		color:#222;
+	}
+	
+	</style>
+</head>
+<body>
+<h1 style="text-align:center">Demo notify 4 giây bật và 2 giây tắt.</h1>
+	<div id="notify">
+		<img src="ic_notify.png">		
+		<p><b>Cảm ơn <span id="name">Phạm Nhật Linh</span></b></br>
+		<span id="phone">0987xxxxx</span> Đã đặt hàng thành công <span id="phut">2</span> phút trước
+		</p>
+	</div>
+	<script>
+	var data=[{"name":"Phạm Nhật Linh","phone":"0987xxxxx","phut":2},
+	{"name":"Phạm Nhật Long","phone":"0987xxxxx","phut":3},
+	{"name":"Phạm Nhật Linh","phone":"0987xxxxx","phut":2},
+	{"name":"Phạm Nhật Long","phone":"0987xxxxx","phut":3},
+	{"name":"Phạm Nhật Linh","phone":"0987xxxxx","phut":2},
+	{"name":"Phạm Nhật Long","phone":"0987xxxxx","phut":3}];
+		setInterval(function(){
+			var i=Math.floor(Math.random() * 6);			
+			$("#name").html(data[i].name);
+			$("#phone").html(data[i].phone);
+			$("#phut").html(data[i].phut);
+			$("#notify").fadeIn();
+			
+			setTimeout(function()
+		  { 
+				$("#notify").fadeOut();
+		  }, 2000); 
+		
+		}, 4000);
+	</script>
+</body>
+</html>
